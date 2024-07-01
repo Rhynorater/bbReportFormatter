@@ -1,0 +1,4 @@
+GET /userInfo?id=1234
+Host: site.com
+
+
