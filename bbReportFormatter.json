@@ -1,0 +1,113 @@
+{
+  "description": "Add the selected request, response, or text to bbReportFormatter. See https://github.com/Rhynorater/bbRequestFormatter",
+  "edition": 2,
+  "graph": {
+    "edges": [
+      {
+        "source": {
+          "exec_alias": "exec",
+          "node_id": 0
+        },
+        "target": {
+          "exec_alias": "exec",
+          "node_id": 2
+        }
+      },
+      {
+        "source": {
+          "exec_alias": "exec",
+          "node_id": 2
+        },
+        "target": {
+          "exec_alias": "exec",
+          "node_id": 1
+        }
+      }
+    ],
+    "nodes": [
+      {
+        "alias": "convert_start",
+        "definition_id": "caido/convert-start",
+        "display": {
+          "x": -10,
+          "y": -80
+        },
+        "id": 0,
+        "inputs": [],
+        "name": "Convert Start",
+        "version": "0.1.0"
+      },
+      {
+        "alias": "convert_end",
+        "definition_id": "caido/convert-end",
+        "display": {
+          "x": 40,
+          "y": 220
+        },
+        "id": 1,
+        "inputs": [
+          {
+            "alias": "data",
+            "value": {
+              "data": "$shell.data",
+              "kind": "ref"
+            }
+          }
+        ],
+        "name": "Convert End",
+        "version": "0.1.0"
+      },
+      {
+        "alias": "shell",
+        "definition_id": "caido/shell-cmd",
+        "display": {
+          "x": 0,
+          "y": 60
+        },
+        "id": 2,
+        "inputs": [
+          {
+            "alias": "init",
+            "value": {
+              "data": "",
+              "kind": "string"
+            }
+          },
+          {
+            "alias": "timeout",
+            "value": {
+              "data": 2000,
+              "kind": "integer"
+            }
+          },
+          {
+            "alias": "shell",
+            "value": {
+              "data": "powershell",
+              "kind": "string"
+            }
+          },
+          {
+            "alias": "data",
+            "value": {
+              "data": "$convert_start.data",
+              "kind": "ref"
+            }
+          },
+          {
+            "alias": "code",
+            "value": {
+              "data": "bbrf",
+              "kind": "string"
+            }
+          }
+        ],
+        "name": "Shell",
+        "version": "0.1.0"
+      }
+    ]
+  },
+  "id": "7aa5f7ba-661b-4961-8fc9-64001fe837c7",
+  "kind": "convert",
+  "name": "bbReportFormatter"
+}
